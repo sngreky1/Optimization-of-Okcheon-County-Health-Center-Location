@@ -989,6 +989,37 @@ silhouette_avg_1 = silhouette_score(X, labels_1)
 print("Mean Shift 클러스터링의 실루엣 계수:", silhouette_avg_1)
 
 
+# In[128]:
+
+
+from sklearn.preprocessing import scale
+from sklearn.datasets import load_iris
+from sklearn.cluster import KMeans
+# 실루엣 분석 metric 값을 구하기 위한 API 추가
+from sklearn.metrics import silhouette_samples, silhouette_score
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+
+# In[129]:
+
+
+# iris 의 모든 개별 데이터에 실루엣 계수값을 구함
+score_samples1 = silhouette_samples(X, merged_df_옥천읍_target1['Mean-shift'])
+print('silhouette_samples( ) return 값의 shape' , score_samples1.shape)
+
+# irisDF에 실루엣 계수 컬럼 추가
+merged_df_옥천읍_target1['silhouette_coeff'] = score_samples1
+
+
+# In[130]:
+
+
+print(np.mean(score_samples1))
+print(silhouette_score(X, merged_df_옥천읍_target1['Mean-shift']))
+
+
 # # 실루엣 계수 평가 - 이원면
 
 # In[121]:
@@ -999,6 +1030,111 @@ from sklearn.metrics import silhouette_score
 # 실루엣 계수 평가
 silhouette_avg_2 = silhouette_score(X2, labels_2)
 print("Mean Shift 클러스터링의 실루엣 계수:", silhouette_avg_2)
+
+
+# # 실루엣 계수 평가 - 안내면
+
+# In[122]:
+
+
+from sklearn.metrics import silhouette_score
+
+# 실루엣 계수 평가
+silhouette_avg_3 = silhouette_score(X3, labels_3)
+print("Mean Shift 클러스터링의 실루엣 계수:", silhouette_avg_3)
+
+
+# # 실루엣 계수 평가 - 안남면
+
+# In[124]:
+
+
+from sklearn.metrics import silhouette_score
+
+# labels_4와 X4의 샘플 수 일치시키기
+labels_4 = labels_4[:X4.shape[0]]
+
+# 실루엣 계수 평가
+silhouette_avg_4 = silhouette_score(X4, labels_4)
+print("Mean Shift 클러스터링의 실루엣 계수:", silhouette_avg_4)
+
+
+# # 실루엣 계수 평가 - 군서면
+
+# In[126]:
+
+
+from sklearn.metrics import silhouette_score
+
+# labels_5와 X5의 샘플 수 일치시키기
+labels_5 = labels_5[:X5.shape[0]]
+
+# 실루엣 계수 평가
+silhouette_avg_5 = silhouette_score(X5, labels_5)
+print("Mean Shift 클러스터링의 실루엣 계수:", silhouette_avg_5)
+
+
+# # 실루엣 계수 평가 - 군북면
+
+# In[133]:
+
+
+from sklearn.metrics import silhouette_score
+
+# labels_6와 X6의 샘플 수 일치시키기
+n_samples = min(X6.shape[0], len(labels_6))
+X6_subset = X6[:n_samples]
+labels_6_subset = labels_6[:n_samples]
+
+# 실루엣 계수 평가
+silhouette_avg_6 = silhouette_score(X6_subset, labels_6_subset)
+print("Mean Shift 클러스터링의 실루엣 계수:", silhouette_avg_6)
+
+
+# # 실루엣 계수 평가 - 동이면
+
+# In[137]:
+
+
+from sklearn.metrics import silhouette_score
+
+# labels_7와 X7의 샘플 수 일치시키기
+labels_7 = labels_7[:X7.shape[0]]
+
+# 실루엣 계수 평가
+silhouette_avg_7 = silhouette_score(X7, labels_7)
+print("Mean Shift 클러스터링의 실루엣 계수:", silhouette_avg_7)
+
+
+# # 실루엣 계수 평가 - 청산면
+# 
+
+# In[138]:
+
+
+from sklearn.metrics import silhouette_score
+
+# labels_8와 X8의 샘플 수 일치시키기
+labels_8 = labels_8[:X8.shape[0]]
+
+# 실루엣 계수 평가
+silhouette_avg_8 = silhouette_score(X8, labels_8)
+print("Mean Shift 클러스터링의 실루엣 계수:", silhouette_avg_8)
+
+
+# # 실루엣 계수 평가 - 청성면
+
+# In[139]:
+
+
+from sklearn.metrics import silhouette_score
+
+# labels_9와 X9의 샘플 수 일치시키기
+labels_9 = labels_9[:X9.shape[0]]
+
+# 실루엣 계수 평가
+silhouette_avg_9 = silhouette_score(X9, labels_9)
+print("Mean Shift 클러스터링의 실루엣 계수:", silhouette_avg_9)
 
 
 # In[ ]:
